@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>购物车</title>
+		<script type="text/javascript" src="index/js/jquery.min.js"></script>
+		<script type="text/javascript" src="index/js/swiper.min.js"></script>
+		<script type="text/javascript" src="index/js/details.js"></script>
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/taocan.css" rel="stylesheet" type="text/css"/>
+		<link href="index/css/pram.css" type="text/css" rel="stylesheet">
+	</head>
+	<body id="boby">
+		<div class="kh-title">
+			<div class="tit-limg"><a href="index.html"><div class="mt12 ml10"><img src="img/right.png"/></div></a></div>
+			<h2 class="tit-cen">购物车</h2>
+			<div class="tit-rimg"><div class="mt12"><img src="img/right.png"/></div></div>	
+		</div>
+		<div class="vehiclebox-boby mb10 bb bt">
+			<ul class="head m10">
+				<li class="fl bred  ml20">套装</li>
+				<li class="fr mr20"id="edit">编辑</li>
+				<li class="fr mr20 disnone" id="complete">成功</li>
+				<li class="  ml100 mr100">优惠套装1</li>
+				
+			</ul>
+					<ul>
+						<li class="h100 m10">
+							<a href="#">	
+							<div class="fl">
+								<img alt="中联重科 推土机 中联重科ZD220"
+				 				src="img/wa.jpg" width="90" height="90">
+							</div>
+							<div class="p-info">
+				 				<h5 class="p-name pt10 pl100">中联重科 推土机 中联重科ZD220</h5>
+				 				<h5 class="p-name pt10 pl100 cred">￥5700</h5>
+				 				<h5 class="p-name pt10 pl100 gray">1</h5>
+				 			</div>
+				 			</a>
+						</li>
+				 		<li class="h100 m10">
+							<a href="#">	
+							<div class="fl">
+								<img alt="柴油  meckeeper  16KG  -5#"
+				 				src="img/chai.jpg" width="90" height="90">
+							</div>
+							<div class="p-info">
+				 				<h5 class="p-name pt10 pl100">中联重科 推土机 中联重科ZD220</h5>
+				 				<h5 class="p-name pt10 pl100 cred">￥255</h5>
+				 				<h5 class="p-name pt10 pl100 gray">1</h5>
+				 			</div>
+				 			</a>
+				 		</li>
+					</ul> 
+					<div class="total">
+						
+						<div class="Select-amount fr mr10 disnone"id="num">
+							<div class="amountl f16">数量</div>
+							<div class="amountr">
+								<div class="num_wrap clearfix">
+									<span class="minus" id="minus"></span>
+									<input class="num" id="buyNum" type="tel" value="1" readonly="">
+									<span class="plus" id="plus"></span>
+								</div>
+							</div>
+						</div>
+						<span class="ml10 lh40 f16">套餐价： <span class="gray"> 5955</span></span>
+					</div>
+				</div>	
+				
+ 			<script type="text/javascript">
+            $(function () {
+                $("#edit").bind("click", function () {
+                	 $("#edit").toggle(0,function(){
+                        
+                    })
+                    $("#num").toggle(0,function(){
+                        
+                    })
+                     $("#complete").toggle(0,function(){
+                        
+                    })
+                })
+
+                $("#complete").bind("click", function () {
+                	 $("#edit").toggle(0,function(){
+                        
+                    })
+                    $("#num").toggle(0,function(){
+                        
+                    })
+                     $("#complete").toggle(0,function(){
+                        
+                    })
+                })
+            });
+           
+	//  加入购物 出现 ＋N 的动画状态效果
+	function showAddnumber(){
+		var CarNum = $('#cartNum');
+		var _val = $('#buyNum').val();
+		var CarNumHtml = parseInt(CarNum.html());
+		var PoPone = $('#popone');
+		
+		
+		PoPone.html('+'+_val);
+
+		if(CarNum.html() == ''){
+			CarNum.html(_val);
+		}else{
+			var addCars = parseInt(_val)+CarNumHtml;
+			CarNum.html(+addCars);
+		}
+		var countdown = 1;
+		function settime() {
+			if (countdown == 0) {
+				countdown = 1;
+				$('#popone').removeClass('shows');
+				return;
+			} else {
+				$('#popone').addClass('shows');
+				countdown --;
+			}
+			setTimeout(function(){
+				settime();
+			},1000);
+		}
+		settime();
+	}
+        </script>
+ 			
+	</body>
+	
+</html>
